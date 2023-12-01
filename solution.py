@@ -3,9 +3,9 @@ import time
 
 
 class Solution(ABC):
-    def __init__(self, day):
+    def __init__(self, day, example):
         self.day = day
-        self.input_data = self.read_input()
+        self.input_data = self.read_input('' if example is None else f"_example{example}")
         self.results = [None, None]
 
     @abstractmethod
@@ -16,8 +16,8 @@ class Solution(ABC):
     def solve_part2(self):
         pass
 
-    def read_input(self):
-        with open(f"input/day{self.day}.txt", "r") as file:
+    def read_input(self, example):
+        with open(f"input/day{self.day}{example}.txt", "r") as file:
             return file.read().strip()
 
     def run(self, part):

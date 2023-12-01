@@ -29,6 +29,6 @@ class Day1Solution(Solution):
 
 
 if __name__ == "__main__":
-    solution = Day1Solution(day=1)
+    solution = Day1Solution(day=1, example=None)
     solution.run(part=1)
     solution.run(part=2)
