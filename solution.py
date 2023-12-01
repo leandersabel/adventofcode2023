@@ -9,10 +9,6 @@ class Solution(ABC):
         self.results = [None, None]
 
     @abstractmethod
-    def parse_input(self):
-        pass
-
-    @abstractmethod
     def solve_part1(self):
         pass
 
@@ -23,7 +19,6 @@ class Solution(ABC):
     def read_input(self):
         with open(f"input/day{self.day}.txt", "r") as file:
             return file.read().strip()
-        self.parse_input()
 
     def run(self, part):
         """
