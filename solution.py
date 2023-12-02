@@ -3,10 +3,15 @@ import time
 
 
 class Solution(ABC):
-    def __init__(self, day, example):
+    def __init__(self, day, example=None):
         self.day = day
         self.input_data = self.read_input('' if example is None else f"_example{example}")
+        self.parsed_input = self.parse_input()
         self.results = [None, None]
+
+    @abstractmethod
+    def parse_input(self):
+        pass
 
     @abstractmethod
     def solve_part1(self):

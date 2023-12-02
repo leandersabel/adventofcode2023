@@ -27,6 +27,10 @@ class Day1Solution(Solution):
 
         return sum_up(data)
 
+    def parse_input(self):
+        # Parsing differently for part 1 and 2
+        pass
+
 
 if __name__ == "__main__":
     solution = Day1Solution(day=1, example=None)
