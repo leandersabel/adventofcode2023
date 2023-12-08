@@ -1,3 +1,4 @@
+import locale
 from abc import ABC, abstractmethod
 import time
 
@@ -36,7 +37,9 @@ class Solution(ABC):
         self.print_results(part, time.time() - start_time)
 
     def print_results(self, part, duration):
-        print(f"=== Day {self.day} - Part {part} ===")
-        print(f"Result:   {self.results[part-1]}")
-        print(f"Duration: {duration:.6f} seconds\n")
+        locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+        print(f'=== Day {self.day} - Part {part} ===')
+        print('Result:   ' + locale.format_string("%d", self.results[part - 1], grouping=True) +
+              f' ({self.results[part - 1]})')
+        print(f'Duration: {duration:.6f} seconds\n')
 
