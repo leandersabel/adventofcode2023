@@ -34,12 +34,13 @@ class Solution(ABC):
         """
         start_time = time.time()
         self.results[part-1] = getattr(self, 'solve_part' + str(part))()
-        self.print_results(part, time.time() - start_time)
+        self.print_results(part, self.results[part-1], time.time() - start_time)
 
-    def print_results(self, part, duration):
+    def print_results(self, part, result, duration):
         locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+        f_result = locale.format_string("%d", result, grouping=True) if str(result).isdigit() else ''
+
         print(f'=== Day {self.day} - Part {part} ===')
-        print('Result:   ' + locale.format_string("%d", self.results[part - 1], grouping=True) +
-              f' ({self.results[part - 1]})')
+        print(f'Result:   {f_result} ({result})')
         print(f'Duration: {duration:.6f} seconds\n')
 
