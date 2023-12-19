@@ -18,3 +18,7 @@ def replace_or_append(lst, index, value):
         lst.append(value)
     else:
         lst[index] = value
+
+
+def pairwise(lst):
+    return zip(lst[::2], lst[1::2])
